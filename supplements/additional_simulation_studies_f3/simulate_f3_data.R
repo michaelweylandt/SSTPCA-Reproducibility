@@ -1,5 +1,5 @@
-Rcpp::sourceCpp("../../../tensor_factorizations.cpp")
-Rcpp::sourceCpp("../../../tensor_factorizations_simul.cpp")
+Rcpp::sourceCpp("../../tensor_factorizations.cpp")
+Rcpp::sourceCpp("../../tensor_factorizations_simul.cpp")
 library(dplyr)
 
 TGRID <- c(50, 100, 150, 200, 250, 300)#, 400, 500)
