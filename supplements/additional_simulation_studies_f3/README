@@ -1,0 +1,3 @@
+The three figures appearing in Supplement Section F3 all use the same
+set of simulations. You will need to run `simulate_f3_data.R` in this
+directory before generating the figures.

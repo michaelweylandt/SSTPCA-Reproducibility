@@ -1,0 +1,8 @@
+Data in scotus_networks.csv was manually extracted from annual
+"Stat Packs" on <https://www.scotusblog.com>
+
+E.g., for OT 2015, data was copied from p.28 of
+<https://www.scotusblog.com/wp-content/uploads/2016/06/SB_stat_pack_OT15.pdf>
+
+For all years, the "Agree in Full, Part, or Judgment Only" value (or equivalent)
+was used.
