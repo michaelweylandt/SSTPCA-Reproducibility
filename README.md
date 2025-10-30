@@ -182,7 +182,7 @@ Three non-simulated data sets are used in this paper:
   [the code generating Figure 6](main_paper/case_study_42/figure_6.R) for an
   example. 
 
-- [SCOTUS Voting Data Set](supplements/additional_case_studies_f2/scotus_case_study_f21/scotus_network.csv)
+- [SCOTUS Voting Data Set](supplements/additional_case_studies_f2/scotus_case_study_f21/scotus_networks.csv)
   This data set was manually extracted by the authors, using data from 
   [SCOTUSBlog](https://www.scotusblog.com). Each edge captures the frequency
   of cases in which a pair of US Supreme Court Justices concurred in the judgement
