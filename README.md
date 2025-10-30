@@ -18,10 +18,10 @@ The organization of this repository mirrors the organization of the paper:
 ├── Makefile
 ├── main_paper
 │   ├── Makefile
-│   ├── case_study_sec_42
+│   ├── case_study_42
 │   │   ├── figure_6.R
 │   │   └── Makefile
-│   └── simulation_studies_sec_41
+│   └── simulation_studies_41
 │       ├── Makefile
 │       ├── simulation_01
 │       │   ├── Makefile
@@ -43,24 +43,24 @@ The organization of this repository mirrors the organization of the paper:
 └── supplements
     ├── additional_case_studies_f2
     │   ├── Makefile
-    │   ├── scotus_case_study_sec_f21
+    │   ├── scotus_case_study_f21
     │   │   ├── Makefile
     │   │   ├── README
     │   │   ├── figure_A5.R
     │   │   └── scotus_networks.csv
-    │   └── finance_case_study_sec_f22
+    │   └── finance_case_study_f22
     │       ├── Makefile
     │       └── figure_A6.R
     ├── additional_simulation_studies_f3
     │   ├── README
     │   ├── simulate_f3_data.R
-    │   ├── multifactor_sstpca_sec_f31
+    │   ├── multifactor_sstpca_f31
     │   │   ├── Makefile
     │   │   └── figure_A7.R
-    │   ├── deflation_sec_f32
+    │   ├── deflation_f32
     │   │   ├── Makefile
     │   │   └── figure_A8.R
-    │   └── tuning_parameters_sec_f33
+    │   └── tuning_parameters_f33
     │       ├── Makefile
     │       ├── figure_A9.R
     │       ├── figure_A10.R
@@ -83,23 +83,23 @@ be possible to run each file directly, though using that directory's
 The figures reproduced here are: 
 
 - Figure 1: Schematic Diagram of the SST-PCA Decomposition (not included)
-- [Figure 2](main_paper/simulation_studies_sec41/simulation_01/figure_2.R): A
+- [Figure 2](main_paper/simulation_studies_41/simulation_01/figure_2.R): A
   comparison of SST-PCA with some other non-network specific tensor decomposition
   algorithms under a set of popular low-rank graph models.
-- [Figure 3](main_paper/simulation_studies_sec41/simulation_02/figure_3.R): 
+- [Figure 3](main_paper/simulation_studies_41/simulation_02/figure_3.R): 
   Demonstration of the rapid computational convergence of the alternating 
   SST-PCA algorithm.
-- [Figure 4](main_paper/simulation_studies_sec41/simulation_03/figure_4-5.R):
+- [Figure 4](main_paper/simulation_studies_41/simulation_03/figure_4-5.R):
   A 'statistical convergence' simulation demonstrating that SST-PCA i) has
   error decreasing inversely to signal strength and ii) scales
   relatively well with the number of nodes in a network. This plot also
   demonstrates that SST-PCA is rather robust to the choice of initialization.
-- [Figure 5](main_paper/simulation_studies_sec41/simulation_03/figure_4-5.R):
+- [Figure 5](main_paper/simulation_studies_41/simulation_03/figure_4-5.R):
   A 'statistical convergence' simulation demonstrating that SST-PCA i) has
   error decreasing inversely to number of networks observed. Like Figure 4, this 
   plot also demonstrates that SST-PCA is rather robust to the choice of 
   initialization.
-- [Figure 6](main_paper/case_study_sec42/figure_6.R): A demonstration on SST-PCA
+- [Figure 6](main_paper/case_study_42/figure_6.R): A demonstration on SST-PCA
   on networks constructed from the school-day contacts of a set of French high
   school students. SST-PCA is able to accurately recover the low-rank structure
   (corresponding to different tracks of study) in this data. The 'time factor'
@@ -107,17 +107,17 @@ The figures reproduced here are:
   
 The Supplemental Materials have several additional figures: 
 
-- [Figure A1](supplements/hs_case_study_additional_details_sec_f1/figure_A1.R):
+- [Figure A1](supplements/hs_case_study_additional_details_f1/figure_A1.R):
   Application of SST-PCA to the _first moment_ of the French High School Data. 
   While PCA is typically applied to estimate the variance structure of data, it
   can also be used to compute a low-rank approximation to the mean of 
   high-dimensional data. We demonstrate the ability of SST-PCA to be used in this
   fashion. 
-- [Figure A2](supplements/hs_case_study_additional_details_sec_f1/figure_A2.R): 
+- [Figure A2](supplements/hs_case_study_additional_details_f1/figure_A2.R): 
   A more detailed study of the time factor estimated by SST-PCA on the French 
   high school data. Here, we demonstrate the SST-PCA is able to flexibly adapt 
   to periods of different signal or edge density. 
-- [Figure A3](supplements/hs_case_study_additional_details_sec_f1/figure_A3-A4.R):
+- [Figure A3](supplements/hs_case_study_additional_details_f1/figure_A3-A4.R):
   A comparison of SST-PCA against other methods on the French High School data
   clustering task. Each method is applied to estimate a cluster structure of
   the students, which is then compared against a 'ground-truth' based on the
@@ -126,36 +126,36 @@ The Supplemental Materials have several additional figures:
   Wang *et al*, and the TWIST approach of Jing *et al*, as well as several
   simple forms of temporal aggregation (i.e., counting or averaging edges over 
   time). 
-- [Figure A4](supplements/hs_case_study_additional_details_sec_f1/figure_A3-A4.R)
+- [Figure A4](supplements/hs_case_study_additional_details_f1/figure_A3-A4.R)
   Visualization and comparisons of the cluster structure inferred by SST-PCA, 
   TWIST, COSIE, and JEG, each of which attempt to estimate some form of low-rank 
   'principal network.'
-- [Figure A5](supplements/additional_case_studies_sec_f2/scotus_case_study_sec_f21/figure_A5.R):
+- [Figure A5](supplements/additional_case_studies_f2/scotus_case_study_f21/figure_A5.R):
   Application of SST-PCA to a data set extracted from the voting patterns of US
   Supreme Court Justices. While this data set is small (only $p=9$ Justices), 
   SST-PCA is able to find interesting "first moment" and "second moment" structure.
   Additionally, we combine SST-PCA with Wang and Samworth's method for time series
   changepoint detection to identify the most important change in Supreme Court
   dynamics in the 1995-2020 study period. 
-- [Figure A6](supplements/additional_case_studies_sec_f2/finance_case_study_sec_f22/figure_A6.R):
+- [Figure A6](supplements/additional_case_studies_f2/finance_case_study_f22/figure_A6.R):
   Application of SST-PCA to a data set extracted from the correlation of various
   national stock indices. Here, we apply SST-PCA to identify structural 
   correlations ("market beta"), regional effects, and the impact of the European
   Debt Crisis on the interconnectivity patterns of financial markets. 
-- [Figure A7](supplements/additional_simulation_studies_sec_f3/multifactor_sstpca_sec_f31/figure_A7.R):
+- [Figure A7](supplements/additional_simulation_studies_f3/multifactor_sstpca_f31/figure_A7.R):
   A simulation study showing how SST-PCA can be iteratively re-applied to 
   estimate multiple SST-PCA factors in a greedy fashion. This simulation also
   demonstrates a moderate degree of robustness of SST-PCA to non-orthogonality
   of the underlying factors. 
-- [Figure A8](supplements/additional_simulation_studies_sec_f3/deflation_sec_f32/figure_A8.R):
+- [Figure A8](supplements/additional_simulation_studies_f3/deflation_f32/figure_A8.R):
   A simulation study demonstrating the impact of different 
   deflation strategies. Depending on the orthogonality (or lack of orthogonality)
   of the underlying low-rank model, different deflation methods may be preferred
   when estimating multiple SST-PCA factors. 
-- [Figure A9](supplements/additional_simulation_studies_sec_f3/tuning_parameters_sec_f33/figure_A9.R):
+- [Figure A9](supplements/additional_simulation_studies_f3/tuning_parameters_f33/figure_A9.R):
   A simulation study illustrating the effectiveness of a singular-value thresholding
   inspired approach to selecting the number of SST-PCA factors. 
-- [Figure A10](supplements/additional_simulation_studies_sec_f3/tuning_parameters_sec_f33/figure_A10.R):
+- [Figure A10](supplements/additional_simulation_studies_f3/tuning_parameters_f33/figure_A10.R):
   A simulation study illustrating the effectiveness of BIC-based selection of the
   rank of the low-rank component of the SST-PCA principal network.
   While BIC-based rank selection does not quite match oracle performance, the
@@ -173,10 +173,10 @@ Three non-simulated data sets are used in this paper:
   appearing in Figure 6 and Figures A1-A4.
 
   Reproduction code relying on this data set automatically downloads it. See
-  [the code generating Figure 6](main_paper/case_study_sec42/figure_6.R) for an
+  [the code generating Figure 6](main_paper/case_study_42/figure_6.R) for an
   example. 
 
-- [SCOTUS Voting Data Set](supplements/additional_case_studies_f2/scotus_case_study_sec_f21/scotus_network.csv)
+- [SCOTUS Voting Data Set](supplements/additional_case_studies_f2/scotus_case_study_f21/scotus_network.csv)
   This data set was manually extracted by the authors, using data from 
   [SCOTUSBlog](https://www.scotusblog.com). Each edge captures the frequency
   of cases in which a pair of US Supreme Court Justices concurred in the judgement
@@ -194,7 +194,7 @@ Three non-simulated data sets are used in this paper:
   extension, national economies). The data is downloaded from Yahoo! Finance
   using the [`quantmod` `R` package](https://www.quantmod.com/). This data
   is downloaded automatically as part of 
-  [replicating Figure A6](supplements/additional_case_studies_f2/finance_case_study_sec_f22/figure_A6.R).
+  [replicating Figure A6](supplements/additional_case_studies_f2/finance_case_study_f22/figure_A6.R).
   
   The following ETFs are used: 
   
