@@ -161,8 +161,4 @@ G <- ((P0[[1]] + ggtitle("October Term 2001")) +
 ggsave("figure_A5.pdf", G & theme(plot.title = element_text(size = 16),
                                   plot.caption = element_text(size = 16)), width = 18, height = 8)
 
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_A5.pdf")
-} else {
-    system("xdg-open figure_A5.pdf")
-}
+browseURL("figure_A5.pdf")

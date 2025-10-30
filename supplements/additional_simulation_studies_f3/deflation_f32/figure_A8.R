@@ -45,12 +45,6 @@ readRDS("../multi_rank_error_simul.rds") |>
     guides(color = guide_legend(override.aes = list(size = 6))) -> G
 
 ggsave("figure_A8.pdf", G, width=20, height=8)
-
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_A8.pdf")
-} else {
-    system("xdg-open figure_A8.pdf")
-}
-
+browseURL("figure_A8.pdf")
 
 

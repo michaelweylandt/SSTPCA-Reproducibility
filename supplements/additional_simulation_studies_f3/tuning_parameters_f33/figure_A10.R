@@ -43,10 +43,4 @@ readRDS("select_rank_BIC_error.rds") |>
 
 
 ggsave("figure_A10.pdf", G, width=18, height=9)
-
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_A10.pdf")
-} else {
-    system("xdg-open figure_A10.pdf")
-}
-
+browseURL("figure_A10.pdf")

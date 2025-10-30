@@ -51,14 +51,8 @@ G <- (G1a + guides(linetype = "none", shape = "none", color = "none") + xlab(NUL
     (G1c + ggtitle(NULL) +  theme(strip.text = element_blank()))
 
 
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_4.pdf")
-} else {
-    system("xdg-open figure_4.pdf")
-}
-
-
 ggsave("figure_4.pdf", G, width = 12, height = 6)
+browseURL("figure_4.pdf")
 
 ## Figure 5
 p_i <- 40; T_grid <- c(10, 30, 50, 70, 90, 110)
@@ -112,11 +106,5 @@ H <- (H1a + guides(linetype = "none", shape = "none", color = "none") + xlab(NUL
     (H1c + ggtitle(NULL) +  theme(strip.text = element_blank()))
 
 ggsave("figure_5.pdf", H, width = 12, height = 6)
-
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_5.pdf")
-} else {
-    system("xdg-open figure_5.pdf")
-}
-
+browseURL("figure_5.pdf")
 

@@ -98,7 +98,9 @@ for(r in seq(R_MAX)){
 }
 
 # Scree plot suggests rank 9
-plot(sapply(FITS, function(f) sum(f$X_hat^2) / sum(TENSOR^2)))
+if(interactive()){
+    plot(sapply(FITS, function(f) sum(f$X_hat^2) / sum(TENSOR^2)))
+}
 R_HAT <- 9
 
 # Visualize u component
@@ -176,9 +178,4 @@ SuppFig_U <- M1_G1 + SuppB + SuppC + plot_annotation(tag_levels="A") +
     plot_layout(guides="collect", nrow=2) & theme(legend.position="bottom", text=element_text(size=24))
 
 ggsave("figure_A2.pdf", SuppFig_U, width=18, height=12)
-
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_A2.pdf")
-} else {
-    system("xdg-open figure_A2.pdf")
-}
+browseURL("figure_A2.pdf")

@@ -29,11 +29,4 @@ readRDS("select_K_error.rds") |>
     guides(color = guide_legend(override.aes = list(size = 6))) -> G
 
 ggsave("figure_A9.pdf", G, width=16, height=6)
-
-
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_A9.pdf")
-} else {
-    system("xdg-open figure_A9.pdf")
-}
-
+browseURL("figure_A9.pdf")

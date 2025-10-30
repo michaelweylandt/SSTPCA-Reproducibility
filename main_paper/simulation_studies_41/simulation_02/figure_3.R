@@ -41,10 +41,4 @@ readRDS("simulation_computational_convergence_results.rds") |>
         ylab("Distance Between SS-TPCA Iterate and Target") -> G
 
 ggsave("figure_3.pdf", G, height = 6, width = 6)
-
-
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_3.pdf")
-} else {
-    system("xdg-open figure_3.pdf")
-}
+browseURL("figure_3.pdf")

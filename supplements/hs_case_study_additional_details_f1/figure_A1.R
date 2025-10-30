@@ -208,9 +208,4 @@ M1_G_COMP <- (M1_G2 + M1_G3 + plot_layout(guides="collect") & theme(legend.posit
     plot_annotation(tag_levels="A")
 
 ggsave("figure_A1.pdf", M1_G_COMP, width=18, height=5)
-
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_A1.pdf")
-} else {
-    system("xdg-open figure_A1.pdf")
-}
+browseURL("figure_A1.pdf")

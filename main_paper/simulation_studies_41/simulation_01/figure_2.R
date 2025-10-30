@@ -25,11 +25,5 @@ G1 <- readRDS("simulation_methods_comparison_results.rds") |>
 # \u2016 is better than "||" here but doesn't work well with my PDF engine
 
 ggsave("figure_2.pdf", plot = G1, width=11.25, height = 4)
-
-
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_2.pdf")
-} else {
-    system("xdg-open figure_2.pdf")
-}
+browseURL("figure_2.pdf")
 

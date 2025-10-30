@@ -122,12 +122,7 @@ G <- (T1 + (T2 + ylab(NULL)) + (T3 + ylab(NULL))) / (G1 + G2 + G3) + plot_layout
 
 
 ggsave("figure_A6.pdf", G & theme(text = element_text(size = 18)), width = 20, height = 6)
-
-if(grepl("darwin", version$os, ignore.case=TRUE)){
-    system("open figure_A6.pdf")
-} else {
-    system("xdg-open figure_A6.pdf")
-}
+browseURL("figure_A6.pdf")
 
 ## Cusum analysis:
 #- Look for European debt crisis, should be low-loaded on Asia
