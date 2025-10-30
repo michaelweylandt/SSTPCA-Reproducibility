@@ -249,7 +249,10 @@ two principal functions of interest:
 1. `ss_tpm`: This function implements the core SST-PCA decomposition, with
    the following arguments: 
   
-   - `X`: the semi-symmetric tensor to decompose
+   - `X`: the semi-symmetric tensor to decompose. This should be a p-by-p-by-T
+     tensor symmetric along each slice: *i.e.*, `all(X[,,t] == t(X[,,t]))` for
+     all `t`. Integer or binary tensors will be silently coerced to doubles for
+     internal computations.
    - `u_init_strategy`: a flag controlling the initialization strategy used for
      $u^{(0)}$: 
       - `u_init_strategy = 0`: [Default] "Stable initialization" with 
@@ -261,14 +264,17 @@ two principal functions of interest:
         at random (Haar measure) over the unit sphere
       - `u_init_strategy = 2`: $u^{(0)}$ is initialized to a user-provided vector
         passed as the optional argument `u_init`
+      - Other values are not allowed. 
    - `rank`: the rank of the principal network $\hat{V}$ estimated by SST-PCA.
-      Default 1. 
+      Default 1. Must be a positive integer. 
    - `eps`: the tolerance used to check convergence, stopping when 
       $|u^{(k)} - u^{(k-1)}| + |v^{(k)} - v^{(k-1)}|$ falls below `eps`. Default `1e-6`.
+      Must be a positive real number. 
    - `max_iter`: the maximum number of SST-PCA iterations before stopping.
-      Default 1000.
+      Default 1000. Must be a positive integer.
    - `u_init`: An initial value to be used for $u^{(0)}$. Required when 
-      `u_init_strategy=2`. 
+      `u_init_strategy=2`. If passed, this must be a vector of length `T`, where
+      `T` is the third dimension of `X`. 
 
 2. `ss_tpm_large`: An experimental alternative to SST-PCA which uses an iterative
    power method for the $V$-update, rather than a full eigendecomposition. For 
@@ -277,11 +283,14 @@ two principal functions of interest:
    
 Both functions return a list containing: 
 
-- `u_hat`: the estimated SST-PCA time factor
-- `v_hat`: the orthogonal matrix factor of the SST-PCA principal network
+- `u_hat`: the estimated SST-PCA time factor (T-vector)
+- `v_hat`: the orthogonal matrix factor of the SST-PCA principal network 
+  (p-by-rank matrix)
 - `V_hat`: the SST-PCA principal network, formed by taking the outer product of
-  `v_hat` with itself
-- `d`: the SST-PCA scaling factor, roughly equivalent to a singular value
+  `v_hat` with itself (p-by-p matrix of specified rank)
+- `d`: the SST-PCA scaling factor, roughly equivalent to a singular value 
+  (positive scalar)
 - `X_hat`: the SST-PCA approximation to the input tensor `X`, formed by the 
-  outer product of `u_hat` and `V_hat`, scaled by `d`
+  outer product of `u_hat` and `V_hat`, scaled by `d` (semi-symmetric tensor
+  of dimensions matching the original input)
    
