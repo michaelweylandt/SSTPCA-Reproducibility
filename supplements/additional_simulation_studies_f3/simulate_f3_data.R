@@ -54,10 +54,10 @@ for(dmin in DMIN_GRID){
                                 U <- rQ(T, K)
                                 V <- rQ(p, R)
                             } else if (scenario == 2){
-                                U <- replicate(K, rQ(T, 1)) %>% drop
+                                U <- replicate(K, rQ(T, 1)) |> drop()
                                 V <- rQ(p, R)
                             } else if (scenario == 3){
-                                U <- replicate(K, rQ(T, 1)) %>% drop
+                                U <- replicate(K, rQ(T, 1)) |> drop()
                                 V <- do.call(cbind, lapply(r, function(.) rQ(p, .)))
                             }
 

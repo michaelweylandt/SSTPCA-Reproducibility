@@ -6,20 +6,20 @@ RESULTS2 <- readRDS("simulation_2.rds")
 
 # Figure 4
 T_i <- 40; p_grid <- c(10, 30, 50, 70, 90, 110)
-rbind(RESULTS1 %>% filter(T == T_i) %>% mutate(u = "Positive Orthant") %>% select(-iter),
-      RESULTS2 %>% filter(T == T_i) %>% mutate(u = "Uniform")) %>%
-    mutate(label = R.utils::capitalize(label)) %>%
-    filter(p %in% p_grid) %>%
+rbind(RESULTS1 |> filter(T == T_i) |> mutate(u = "Positive Orthant") |> select(-iter),
+      RESULTS2 |> filter(T == T_i) |> mutate(u = "Uniform")) |>
+    mutate(label = R.utils::capitalize(label)) |>
+    filter(p %in% p_grid) |>
     ggplot(aes(x = d, y = X_err_scaled, color = label, shape = u)) + geom_point() +
     geom_line() + facet_grid( ~ p, labeller = label_both) + theme_bw() +
     scale_color_viridis_d(name = "Initialization Method") + xlab("d") +
     ylab(expression(group("||", hat(X) - X["*"], "||")[F] / group("||", X["*"], "||")[F])) + ggtitle("Recovery of Rank-1 Network Series") + scale_y_log10()  +
     theme(legend.position = "bottom")-> G1a
 
-rbind(RESULTS1 %>% filter(T == T_i) %>% mutate(u = "Positive Orthant") %>% select(-iter),
-      RESULTS2 %>% filter(T == T_i) %>% mutate(u = "Uniform")) %>%
-    mutate(label = R.utils::capitalize(label)) %>%
-    filter(p %in% p_grid) %>%
+rbind(RESULTS1 |> filter(T == T_i) |> mutate(u = "Positive Orthant") |> select(-iter),
+      RESULTS2 |> filter(T == T_i) |> mutate(u = "Uniform")) |>
+    mutate(label = R.utils::capitalize(label)) |>
+    filter(p %in% p_grid) |>
     ggplot(aes(x = d, y = u_acos, color = label, shape = u)) + geom_point() +
     geom_line() + facet_grid( ~ p, labeller = label_both) + theme_bw() +
     scale_color_viridis_d(name = "Initialization Method") + xlab("d") +
@@ -28,10 +28,10 @@ rbind(RESULTS1 %>% filter(T == T_i) %>% mutate(u = "Positive Orthant") %>% selec
     ylim(c(0, 90)) +
     theme(legend.position = "bottom")-> G1b
 
-rbind(RESULTS1 %>% filter(T == T_i) %>% mutate(u = "Positive Orthant") %>% select(-iter),
-      RESULTS2 %>% filter(T == T_i) %>% mutate(u = "Uniform")) %>%
-    mutate(label = R.utils::capitalize(label)) %>%
-    filter(p %in% p_grid) %>%
+rbind(RESULTS1 |> filter(T == T_i) |> mutate(u = "Positive Orthant") |> select(-iter),
+      RESULTS2 |> filter(T == T_i) |> mutate(u = "Uniform")) |>
+    mutate(label = R.utils::capitalize(label)) |>
+    filter(p %in% p_grid) |>
     ggplot(aes(x = d, y = v_acos, color = label, shape = u)) + geom_point() +
     geom_line() + facet_grid( ~ p, labeller = label_both) + theme_bw() +
     scale_color_viridis_d(name = "Initialization Method") + xlab("d") +

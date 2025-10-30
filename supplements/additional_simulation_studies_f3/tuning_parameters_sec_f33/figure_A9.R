@@ -3,13 +3,13 @@ if(!file.exists("select_K_error.rds")){
 }
 
 # Selection of K
-readRDS("select_K_error.rds") %>%
+readRDS("select_K_error.rds") |>
     mutate(K_err = K - K_hat,
-           SNR=min_normX / normE * K) %>%
-    group_by(dmin, T, p, problem, sd) %>%
-    filter(sd == 0.2, T <= 200) %>%
+           SNR=min_normX / normE * K) |>
+    group_by(dmin, T, p, problem, sd) |>
+    filter(sd == 0.2, T <= 200) |>
     summarize(E=mean(K_err),
-              SNR=mean(SNR)) %>%
+              SNR=mean(SNR)) |>
     ggplot(aes(x=SNR, y=E, color=factor(problem))) +
     geom_point() +
     geom_line() +
