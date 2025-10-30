@@ -2,6 +2,10 @@ if(!file.exists("select_rank_BIC_error.rds")){
     stop("Please run simulation_select_rank_BIC.R to generate data before proceeding.")
 }
 
+
+suppressPackageStartupMessages(library(tidyverse))
+
+
 readRDS("select_rank_BIC_error.rds") |>
     group_by(T, p, sd, dmin, strategy) |>
     summarize(E=sqrt(mean(X_RERR/T))) |>
@@ -38,7 +42,7 @@ readRDS("select_rank_BIC_error.rds") |>
                               override.aes = list(size = 6)))-> G
 
 
-ggsave(plot=G, "figure_A10.pdf", width=18, height=9)
+ggsave("figure_A10.pdf", G, width=18, height=9)
 
 if(grepl("darwin", version$os, ignore.case=TRUE)){
     system("open figure_A10.pdf")

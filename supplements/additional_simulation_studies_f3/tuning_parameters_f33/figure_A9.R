@@ -2,6 +2,8 @@ if(!file.exists("select_K_error.rds")){
     stop("Please run simulation_select_K.R to generate data before proceeding.")
 }
 
+suppressPackageStartupMessages(library(tidyverse))
+
 # Selection of K
 readRDS("select_K_error.rds") |>
     mutate(K_err = K - K_hat,
@@ -26,7 +28,7 @@ readRDS("select_K_error.rds") |>
           strip.text = element_text(size = 22)) +
     guides(color = guide_legend(override.aes = list(size = 6))) -> G
 
-ggsave(G, "figure_A9.pdf", width=16, height=6)
+ggsave("figure_A9.pdf", G, width=16, height=6)
 
 
 if(grepl("darwin", version$os, ignore.case=TRUE)){
