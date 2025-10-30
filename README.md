@@ -69,6 +69,12 @@ The organization of this repository mirrors the organization of the paper:
     └── Makefile
 ```
 
+Beyond the top-level directory, all sub-directories end with the name of the 
+corresponding section of the paper where the figure appears: *e.g.*, 
+`case_study_42` contains code necessary to reproduce the figures appearing in 
+Section 4.2 of the main manuscript, while `tuning_parameters_f33` contains
+code corresponding to Section F.3.3 of the Supplementary Materials.
+
 No code is provided for Figure 1 as it is a schematic drawing of our method
 and not the result of any analysis or simulation. 
 
